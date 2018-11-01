@@ -30,8 +30,8 @@ public class EmployeeDatabase {
     /**
      * Returns the manager for the given employee.
      *
-     * @param employee
-     * @return
+     * @param employee the employee for which you have to find its manager
+     * @return manager
      */
     Employee findManager(final Employee employee) {
         Employee manager = null;
@@ -53,9 +53,12 @@ public class EmployeeDatabase {
      * @return int
      */
     public int countManagersAbove(final Employee employee) {
-        /*
-         * Implement this function
-         */
+        // base case
+        if (findManager(employee) == null) {
+            return 0;
+        }
+        // recursive function
+        return countManagersAbove(findManager(employee)) + 1;
     }
 
     /**
@@ -70,6 +73,7 @@ public class EmployeeDatabase {
         /*
          * Implement this function
          */
+        return 0;
     }
 
     /**
